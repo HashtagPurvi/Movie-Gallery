@@ -7,16 +7,27 @@
 }
 
 
+<div class="row">
+    <div class="col-md-6">
+        <h1>@Model.Name</h1>
+        <div class="well">
+            <h2><label> Release Date </label> @Model.ReleaseDate.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</h2>
+            <h3><label>Ratings</label> : @Model.Ratings</h3>
+            <p>@Html.Raw(@Model.Description)</p>
+            <h3><label>Star Cast</label></h3>
+            <div>
+                <ul>
+                    @foreach (var a in Model.Artists)
+                    {
+                        <li>@a.Name : @a.Role</li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <img src="~/Images/Yeh Jawaani hai Deewani - 2013.jpg" alt="@Model.DisplayText" />
+    </div>
+</div>
 
 
-<h1>@Model.Name</h1>
-<h2>Release Date : @Model.ReleaseDate.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</h2>
-<h3>Ratings : @Model.Ratings</h3>
-<p>@Html.Raw(@Model.Description)</p>
-<h3>Star Cast</h3>
-<ul>
-    @foreach(var a in Model.Artists)
-    {
-        <li>@a.Name : @a.Role</li>
-    }
-</ul>
