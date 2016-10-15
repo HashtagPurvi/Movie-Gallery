@@ -1,0 +1,22 @@
+﻿@model MoviesGallery.Models.Movie
+
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = @Model.DisplayText;
+}
+
+
+
+
+<h1>@Model.Name</h1>
+<h2>Release Date : @Model.ReleaseDate.ToString("D", System.Globalization.CultureInfo.CreateSpecificCulture("en-US"))</h2>
+<h3>Ratings : @Model.Ratings</h3>
+<p>@Html.Raw(@Model.Description)</p>
+<h3>Star Cast</h3>
+<ul>
+    @foreach(var a in Model.Artists)
+    {
+        <li>@a.Name : @a.Role</li>
+    }
+</ul>
